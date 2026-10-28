@@ -1,0 +1,62 @@
+## ====================================================================
+## Unity .gitignore — bazlanan: github/gitignore Unity.gitignore şablonu
+## (bkz. https://github.com/github/gitignore/blob/main/Unity.gitignore),
+## bu projenin ihtiyaçlarına göre uyarlandı.
+## ====================================================================
+
+# Unity tarafından üretilen / yeniden oluşturulabilen klasörler
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+[Uu]serSettings/
+
+# Asset meta dosyaları İÇİN istisna YOK — .meta dosyaları Unity'de
+# commit edilmelidir (GUID referanslarını taşırlar).
+
+# Her platform için otomatik oluşturulan proje/çözüm dosyaları
+.vs/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+*.pdb
+*.mdb
+*.opendb
+*.VC.db
+
+# Unity3D oluşturulan meta dosyaları (dizin düzeyinde değil, dosya düzeyinde)
+*.pidb.meta
+*.pdb.meta
+*.mdb.meta
+
+# Unity3D dışa aktarılan paket
+*.unitypackage
+
+# Crashlytics oluşturulan dosya
+crashlytics-build.properties
+
+# Packed Addressables
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+
+# Addressables temp/cache
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/AddressableAssetSettings.*.bin
+
+# macOS/Windows işletim sistemi dosyaları
+.DS_Store
+Thumbs.db
+
+# ----------------------------------------------------------------
+# NOT: Assets/StreamingAssets/ReplayData/*.csv dosyaları BİLEREK
+# ignore EDİLMİYOR — bunlar vehicle_sim'in ürettiği demo verisi ve
+# replay'in çalışması için repoda kalmalı (bkz. README.md).
+# ----------------------------------------------------------------
