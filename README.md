@@ -4,7 +4,7 @@
 ![Unity](https://img.shields.io/badge/Unity-6000.3.1f1-black?logo=unity)
 ![Platform](https://img.shields.io/badge/platform-Editor%20%7C%20Standalone-lightgrey)
 
-**Unity 3D replay görselleştirici** — `vehicle_sim` adlı ayrı bir Python
+**Unity 3D replay görselleştirici** — `vehicle-sim-7dof` adlı ayrı bir Python
 projesinin ürettiği 50 Hz CSV loglarını, 3 sürücü profilini (baseline /
 conservative / aggressive) aynı pistte yan yana oynatarak 3D olarak
 yeniden canlandırır (replay).
@@ -30,7 +30,7 @@ Bu proje, aşağıdaki iki-depo (two-repo) replay mimarisinin Unity tarafıdır:
 
 ```mermaid
 flowchart LR
-    subgraph PY["vehicle_sim (ayrı Python reposu)"]
+    subgraph PY["vehicle-sim-7dof (ayrı Python reposu)"]
         A["7-DOF araç dinamiği\n+ kendi Pacejka lastik modeli\n+ 3 sürücü profili\n(baseline / conservative / aggressive)"]
         B["scipy solve_ivp\n(RK45 integrasyon)"]
         A --> B
@@ -75,7 +75,7 @@ uzun sürene göre biter).
 
 ### Simülasyonu güncelleyip yeniden oynatmak için
 
-`vehicle_sim/run_all.py`'yi tekrar çalıştır, çıkan `baseline.csv`,
+`vehicle_sim_7dof/run_all.py`'yi tekrar çalıştır, çıkan `baseline.csv`,
 `conservative.csv`, `aggressive.csv`, `raceline.csv` dosyalarını
 `Assets/StreamingAssets/ReplayData/` üzerine kopyala, sonra **ReplayViewer
 → Build Replay Scene**'i tekrar çalıştır (CSV'ler runtime'da
@@ -113,7 +113,7 @@ altındaki dört CSV (`baseline.csv`, `conservative.csv`, `aggressive.csv`,
 `raceline.csv`) zaten bu depoya kopyalanmış durumda — `vehicle_sim`
 reposunu klonlamanıza **gerek yoktur** sadece replay'i izlemek için.
 
-`vehicle_sim` reposuna ihtiyacınız olan tek durum: **yeni bir simülasyon
+[vehicle-sim-7dof](https://github.com/NightKnight-nx2/vehicle-sim-7dof) reposuna ihtiyacınız olan tek durum: **yeni bir simülasyon
 çalıştırıp CSV'leri güncellemek** isterseniz. O repo bu CSV'leri üreten
 ayrı, bağımsız bir Python projesidir (7-DOF araç dinamiği + kendi Pacejka
 lastik modeli + 3 sürücü profili). İki repo birbirine sadece dosya
