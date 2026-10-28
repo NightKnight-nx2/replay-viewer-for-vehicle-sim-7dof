@@ -5,7 +5,7 @@
 ![Platform](https://img.shields.io/badge/platform-Editor%20%7C%20Standalone-lightgrey)
 
 **Unity 3D replay visualizer** — plays back the 50 Hz CSV logs produced
-by a separate Python project, `vehicle_sim`, reconstructing three driver
+by a separate Python project, `vehicle_sim_7dof`, reconstructing three driver
 profiles (baseline / conservative / aggressive) side by side on the same
 track in 3D.
 
@@ -32,7 +32,7 @@ architecture:
 
 ```mermaid
 flowchart LR
-    subgraph PY["vehicle_sim (separate Python repo)"]
+    subgraph PY["vehicle-sim-7dof (separate Python repo)"]
         A["7-DOF vehicle dynamics\n+ custom Pacejka tire model\n+ 3 driver profiles\n(baseline / conservative / aggressive)"]
         B["scipy solve_ivp\n(RK45 integration)"]
         A --> B
@@ -78,7 +78,7 @@ once the longest one finishes).
 
 ### Updating and re-watching a new simulation run
 
-Re-run `vehicle_sim/run_all.py`, copy the resulting `baseline.csv`,
+Re-run `vehicle_sim_7dof/run_all.py`, copy the resulting `baseline.csv`,
 `conservative.csv`, `aggressive.csv`, `raceline.csv` over
 `Assets/StreamingAssets/ReplayData/`, then run **ReplayViewer → Build
 Replay Scene** again (no recompile needed — CSVs are read at runtime by
@@ -117,7 +117,7 @@ This repo is **self-contained and runs standalone**: the four CSVs under
 repository — you do **not** need to clone `vehicle_sim` just to watch the
 replay.
 
-The only reason you'd need the `vehicle_sim` repo is to **run a new
+The only reason you'd need the [vehicle-sim-7dof](https://github.com/NightKnight-nx2/vehicle-sim-7dof) repo is to **run a new
 simulation and refresh the CSVs**. That's a separate, independent Python
 project (7-DOF vehicle dynamics + a custom Pacejka tire model + 3 driver
 profiles) that produces these CSVs. The two repos are linked only by a
